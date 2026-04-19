@@ -89,7 +89,7 @@ img {
 .site-header {
   position: fixed;
   inset: 0 0 auto 0;
-  z-index: 2200;
+  z-index: 2300;
   height: var(--header-h);
   padding-left: env(safe-area-inset-left, 0);
   padding-right: env(safe-area-inset-right, 0);
@@ -205,7 +205,7 @@ img {
   justify-content: center;
   gap: 5px;
   position: relative;
-  z-index: 2203;
+  z-index: 2301;
   width: 44px;
   height: 44px;
   padding: 10px;
@@ -253,7 +253,7 @@ img {
   display: flex;
   position: fixed;
   inset: 0;
-  z-index: 2202;
+  z-index: 2290;
   padding: calc(var(--header-h) + 0.9rem) 1rem max(1.5rem, env(safe-area-inset-bottom, 0px));
   padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
   background: rgba(248, 250, 252, 0.985);
@@ -296,7 +296,7 @@ img {
 .mobile-menu-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 2201;
+  z-index: 2280;
   background: rgba(20, 30, 44, 0.2);
   backdrop-filter: blur(1px);
   opacity: 0;
