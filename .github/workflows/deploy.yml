@@ -1,0 +1,23 @@
+name: Deploy to dhosting
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ostudios.ftp.dhosting.pl
+          username: ostudios
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          server-dir: /public_html/
