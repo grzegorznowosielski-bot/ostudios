@@ -1,7 +1,12 @@
 (function () {
   var header = document.querySelector(".site-header");
   var toggle = document.querySelector(".menu-toggle");
-  var mobileNav = document.querySelector(".nav-mobile");
+  var mobileNav = null;
+  if (toggle) {
+    var controlsId = toggle.getAttribute("aria-controls");
+    if (controlsId) mobileNav = document.getElementById(controlsId);
+  }
+  if (!mobileNav) mobileNav = document.querySelector(".nav-mobile");
   var mobileLinks = mobileNav ? mobileNav.querySelectorAll("a") : [];
 
   function onScroll() {
