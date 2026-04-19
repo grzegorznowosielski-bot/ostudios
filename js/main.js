@@ -3,6 +3,7 @@
   var toggle = document.querySelector(".menu-toggle");
   var mobileNav = document.querySelector(".nav-mobile");
   var mobileLinks = mobileNav ? mobileNav.querySelectorAll("a") : [];
+  var menuBackdrop = null;
 
   function onScroll() {
     if (!header) return;
@@ -16,6 +17,9 @@
     if (!toggle || !mobileNav) return;
     toggle.setAttribute("aria-expanded", "false");
     mobileNav.classList.remove("is-open");
+    mobileNav.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("menu-open");
+    if (menuBackdrop) menuBackdrop.classList.remove("is-visible");
     document.body.style.overflow = "";
   }
 
@@ -23,10 +27,19 @@
     if (!toggle || !mobileNav) return;
     toggle.setAttribute("aria-expanded", "true");
     mobileNav.classList.add("is-open");
+    mobileNav.setAttribute("aria-hidden", "false");
+    document.body.classList.add("menu-open");
+    if (menuBackdrop) menuBackdrop.classList.add("is-visible");
     document.body.style.overflow = "hidden";
   }
 
   if (toggle && mobileNav) {
+    mobileNav.setAttribute("aria-hidden", "true");
+    menuBackdrop = document.createElement("div");
+    menuBackdrop.className = "mobile-menu-backdrop";
+    menuBackdrop.addEventListener("click", closeMenu);
+    document.body.appendChild(menuBackdrop);
+
     toggle.addEventListener("click", function () {
       var expanded = toggle.getAttribute("aria-expanded") === "true";
       if (expanded) closeMenu();
@@ -39,6 +52,10 @@
 
     window.addEventListener("resize", function () {
       if (window.innerWidth >= 880) closeMenu();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") closeMenu();
     });
   }
 
