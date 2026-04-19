@@ -1,0 +1,5 @@
+# Outstanding Studios — https://www.ostudios.pl
+User-agent: *
+Allow: /
+
+Sitemap: https://www.ostudios.pl/sitemap.xml

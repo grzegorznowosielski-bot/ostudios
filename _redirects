@@ -1,0 +1,4 @@
+# Netlify: apex → www (usuń jeśli hostujesz gdzie indziej i skonfigurujesz przekierowania tam)
+https://ostudios.pl/*  https://www.ostudios.pl/:splat  301!
+http://ostudios.pl/*   https://www.ostudios.pl/:splat  301!
+http://www.ostudios.pl/*  https://www.ostudios.pl/:splat  301!

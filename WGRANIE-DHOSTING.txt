@@ -1,0 +1,80 @@
+================================================================================
+Outstanding Studios — wgrywanie na dhosting (formularz PHP)
+================================================================================
+
+CO WGRYWASZ
+-----------
+Wgraj CAŁY katalog projektu tak, żeby struktura na serwerze wyglądała jak u Ciebie
+lokalnie, np.:
+
+  public_html/   (lub katalog domeny)
+    index.html
+    kontakt.php          ← WAŻNE: musi być w tym samym „poziomie” co index.html
+    robots.txt
+    sitemap.xml
+    _redirects           (tylko Netlify — na dhostingu nie jest potrzebny)
+    css/
+    js/
+    assets/
+    en/
+      index.html
+      privacy-policy.html
+    polityka-prywatnosci.html
+
+Formularz PL wysyła dane do:  kontakt.php (w katalogu głównym strony).
+Formularz EN wysyła do:        ../kontakt.php (ten sam plik).
+
+Jeśli strona jest w PODKATALOGU (np. public_html/ostudios/), wgraj tam całą zawartość
+tak, żeby kontakt.php leżał obok index.html w tym podkatalogu — formularze już używają
+względnych ścieżek i powinny działać.
+
+
+PRZED PIERWSZYM TESTEM — EDYCJA kontakt.php
+--------------------------------------------
+Otwórz plik kontakt.php w edytorze tekstu i na górze ustaw:
+
+  MAIL_TO    = adres, NA KTÓRY mają wpadać wiadomości z formularza (np. Twój firmowy).
+  MAIL_FROM  = adres NADAWCY z Twojej domeny (np. noreply@ostudios.pl lub ten sam co MAIL_TO).
+
+Dlaczego MAIL_FROM z własnej domeny?
+  Wiele serwerów odrzuca „obce” adresy w polu From. Adres z ostudios.pl zwykle działa
+  stabilniej. Jeśli dhosting wymaga, utwórz skrzynkę noreply@… w panelu lub użyj
+  istniejącej skrzynki jako MAIL_FROM.
+
+Zapisz plik w UTF-8 (bez BOM), wgraj ponownie na serwer.
+
+
+JAK NIE SCHRZANIĆ WGRYWANIA
+---------------------------
+1. NIE usuwaj pliku kontakt.php ani nie zmieniaj mu nazwy.
+2. NIE zmieniaj w HTML pól: name="name", name="email", name="message", name="lang",
+   name="website" (honeypot — musi zostać, nawet ukryty).
+3. Jeśli edytujesz formularz w przeglądarce na serwerze — upewnij się, że action wskazuje
+   na kontakt.php tak jak w dostarczonym projekcie.
+4. Po wgraniu sprawdź w przeglądarciu:
+     https://twoja-domena.pl/kontakt.php
+   — jeśli zobaczysz przekierowanie na stronę główną, to PHP działa (skrypt odrzuca GET).
+5. Przetestuj wysyłkę z prawdziwego formularza. Sprawdź folder SPAM pierwszej wiadomości.
+
+
+GDY MAIL NIE DOCHODZI
+---------------------
+• Sprawdź SPAM w skrzynce MAIL_TO.
+• W panelu dhostingu upewnij się, że PHP jest włączone dla tej domeny/katalogu.
+• Napisz do pomocy dhostingu: „funkcja mail() z PHP dla domeny …” — czasem trzeba
+  włączyć wysyłkę lub użyć SMTP zamiast mail(); wtedy warto dodać skrzynkę w panelu
+  i ewentualnie później zamienić skrypt na wysyłkę przez SMTP (PHPMailer) — to już
+  osobna konfiguracja u dostawcy.
+
+Bezpieczeństwo: nie udostępniaj publicznie panelu FTP ani haseł. kontakt.php nie zawiera
+haseł — tylko adresy e-mail w konfiguracji.
+
+
+SKRÓT — CHECKLISTA
+------------------
+[ ] Wgrana pełna struktura katalogów + kontakt.php obok index.html
+[ ] W kontakt.php ustawione MAIL_TO i MAIL_FROM (domena ostudios.pl)
+[ ] Test formularza PL i EN
+[ ] Sprawdzenie skrzynki i SPAMU
+
+================================================================================
