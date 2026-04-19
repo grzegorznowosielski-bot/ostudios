@@ -104,6 +104,7 @@ img {
   backdrop-filter: blur(18px) saturate(1.35);
   border-bottom: 1px solid transparent;
   transition: border-color 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+  overflow: visible;
 }
 
 .site-header.is-scrolled {
@@ -250,30 +251,25 @@ img {
 }
 
 .nav-mobile {
-  display: flex;
+  display: none;
   position: fixed;
-  inset: 0;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 2290;
-  padding: calc(var(--header-h) + 0.9rem) 1rem max(1.5rem, env(safe-area-inset-bottom, 0px));
+  padding: 0.9rem 1rem max(1.5rem, env(safe-area-inset-bottom, 0px));
   padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
-  background: rgba(248, 250, 252, 0.985);
+  background: #f8fafc;
   flex-direction: column;
   gap: 0.5rem;
   border-top: 1px solid rgba(34, 62, 99, 0.08);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateY(-10px);
-  transition: opacity 0.2s ease, transform 0.25s ease, visibility 0.2s ease;
 }
 
 .nav-mobile.is-open {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transform: translateY(0);
+  display: flex;
 }
 
 .nav-mobile a {
@@ -291,24 +287,6 @@ img {
 .nav-mobile a:hover {
   background: var(--bg-elevated);
   border-color: rgba(30, 106, 173, 0.25);
-}
-
-.mobile-menu-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 2280;
-  background: rgba(20, 30, 44, 0.2);
-  backdrop-filter: blur(1px);
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-}
-
-.mobile-menu-backdrop.is-visible {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
 }
 
 body.menu-open {

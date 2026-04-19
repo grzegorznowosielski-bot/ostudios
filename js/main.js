@@ -3,7 +3,6 @@
   var toggle = document.querySelector(".menu-toggle");
   var mobileNav = document.querySelector(".nav-mobile");
   var mobileLinks = mobileNav ? mobileNav.querySelectorAll("a") : [];
-  var menuBackdrop = null;
 
   function onScroll() {
     if (!header) return;
@@ -19,7 +18,6 @@
     mobileNav.classList.remove("is-open");
     mobileNav.setAttribute("aria-hidden", "true");
     document.body.classList.remove("menu-open");
-    if (menuBackdrop) menuBackdrop.classList.remove("is-visible");
     document.body.style.overflow = "";
   }
 
@@ -29,16 +27,11 @@
     mobileNav.classList.add("is-open");
     mobileNav.setAttribute("aria-hidden", "false");
     document.body.classList.add("menu-open");
-    if (menuBackdrop) menuBackdrop.classList.add("is-visible");
     document.body.style.overflow = "hidden";
   }
 
   if (toggle && mobileNav) {
     mobileNav.setAttribute("aria-hidden", "true");
-    menuBackdrop = document.createElement("div");
-    menuBackdrop.className = "mobile-menu-backdrop";
-    menuBackdrop.addEventListener("click", closeMenu);
-    document.body.appendChild(menuBackdrop);
 
     toggle.addEventListener("click", function () {
       var expanded = toggle.getAttribute("aria-expanded") === "true";
