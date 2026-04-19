@@ -20,4 +20,4 @@ jobs:
           username: ostudios
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
-          server-dir: /public_html/
+          server-dir: /ostudio.pl/public_html/
