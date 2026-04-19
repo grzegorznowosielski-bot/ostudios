@@ -89,7 +89,7 @@ img {
 .site-header {
   position: fixed;
   inset: 0 0 auto 0;
-  z-index: 100;
+  z-index: 2200;
   height: var(--header-h);
   padding-left: env(safe-area-inset-left, 0);
   padding-right: env(safe-area-inset-right, 0);
@@ -244,6 +244,7 @@ img {
   display: none;
   position: fixed;
   inset: var(--header-h) 0 0 0;
+  z-index: 2201;
   padding: 1.5rem;
   padding-bottom: max(1.5rem, env(safe-area-inset-bottom, 0px));
   background: rgba(255, 255, 255, 0.98);
