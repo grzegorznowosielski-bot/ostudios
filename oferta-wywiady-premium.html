@@ -5,137 +5,303 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta
       name="description"
-      content="Oferta realizacji wywiadów premium: rozmowy eksperckie, podcasty, formaty edukacyjne i short form content."
+      content="Realizacja wywiadów premium: rozmowy eksperckie, podcasty, formaty edukacyjne i social media."
     />
     <meta name="robots" content="noindex, nofollow" />
-    <meta name="theme-color" content="#223e63" />
-    <title>Realizacja wywiadów premium — Oferta</title>
+    <meta name="theme-color" content="#101012" />
+    <title>Realizacja wywiadów premium — Outstanding Studios</title>
     <link rel="stylesheet" href="css/main.css?v=20260419-menu3" />
     <style>
-      .offer-page {
-        padding: calc(var(--header-h) + 2rem) 0 4rem;
+      :root {
+        --offer-dark: #0b0b0f;
+        --offer-dark-soft: #15161d;
+        --offer-light: #f6f7fb;
+        --offer-text: #151922;
+      }
+      .offer-wrap {
+        width: min(100% - 2.2rem, 1240px);
+        margin-inline: auto;
+      }
+      .offer-hero {
+        position: relative;
+        overflow: hidden;
+        color: #fff;
+        background: linear-gradient(135deg, #0f1015 0%, #070708 45%, #171820 100%);
+      }
+      .offer-hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at 85% 10%, rgba(255, 255, 255, 0.08), transparent 40%);
+        pointer-events: none;
+      }
+      .offer-hero-inner {
+        position: relative;
+        padding: clamp(3.8rem, 8vw, 6.5rem) 0;
+        max-width: 900px;
+      }
+      .offer-brand {
+        margin: 0 0 1.2rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.23em;
+        text-transform: uppercase;
+        color: #a8adba;
+        font-weight: 600;
       }
       .offer-hero h1 {
-        margin-bottom: 0.75rem;
+        margin: 0 0 1.3rem;
+        color: #fff;
+        line-height: 1.05;
+        font-size: clamp(2.1rem, 7vw, 4.5rem);
       }
-      .offer-sub {
-        margin: 0 0 1rem;
-        color: var(--accent-warm);
+      .offer-hero p {
+        margin: 0;
+        color: #ccd2dc;
+        font-size: clamp(1.05rem, 2vw, 1.28rem);
+        line-height: 1.7;
+        max-width: 820px;
+      }
+      .offer-hero-link {
+        margin-top: 1.8rem;
+      }
+      .offer-hero-link a {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.9rem 1.5rem;
+        border-radius: 999px;
         font-weight: 700;
-        letter-spacing: 0.06em;
+        color: #070708;
+        background: #fff;
+      }
+      .offer-main {
+        background: #fff;
+        color: var(--offer-text);
+        padding: clamp(3rem, 7vw, 5.5rem) 0;
+      }
+      .offer-intro {
+        max-width: 900px;
+        margin-bottom: 3rem;
+      }
+      .offer-intro h2,
+      .offer-main h2 {
+        margin: 0 0 1rem;
+        font-size: clamp(1.7rem, 4vw, 2.6rem);
+        color: #111318;
+      }
+      .offer-columns {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .offer-columns p,
+      .offer-card p {
+        margin: 0;
+      }
+      .offer-lines {
+        display: grid;
+        gap: 0.8rem;
+        color: #3a4251;
+        font-size: 1.04rem;
+      }
+      .offer-host {
+        margin: 3.2rem 0 4rem;
+        padding: clamp(1.4rem, 3vw, 2rem);
+        border-radius: 24px;
+        background: #f1f3f8;
+      }
+      .offer-host p:first-child {
+        margin: 0 0 0.4rem;
+        font-size: 0.78rem;
         text-transform: uppercase;
-        font-size: 0.85rem;
+        letter-spacing: 0.24em;
+        color: #596173;
+        font-weight: 700;
       }
-      .offer-lead {
-        max-width: 760px;
+      .offer-host h3 {
+        margin: 0 0 0.8rem;
+        font-size: clamp(1.5rem, 4vw, 2.2rem);
+        color: #0f131b;
       }
-      .offer-divider {
-        border: 0;
-        border-top: 1px solid var(--border);
-        margin: 2.25rem 0;
+      .offer-host p {
+        color: #3a4251;
+        line-height: 1.75;
+        max-width: 860px;
       }
-      .offer-section h2 {
-        margin-bottom: 0.8rem;
+      .offer-host a {
+        display: inline-block;
+        margin-top: 1rem;
+        color: #111;
+        font-weight: 700;
+        border-bottom: 1px solid #111;
+      }
+      .offer-packages {
+        margin: 3.5rem 0 3rem;
       }
       .offer-grid {
         display: grid;
-        gap: 1rem;
+        gap: 1.1rem;
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       }
       .offer-card {
-        padding: 1.25rem;
-        border: 1px solid var(--border);
-        border-radius: 14px;
+        border: 1px solid #e5e8f0;
+        border-radius: 24px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
         background: #fff;
-        box-shadow: 0 8px 24px rgba(34, 62, 99, 0.08);
+      }
+      .offer-card--pro {
+        border: 2px solid #111;
+      }
+      .offer-card--premium {
+        background: #0b0b0f;
+        color: #f3f5fa;
+        border-color: #0b0b0f;
+      }
+      .offer-tag {
+        margin: 0 0 0.7rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #6d7485;
+        font-weight: 700;
+      }
+      .offer-card--premium .offer-tag {
+        color: #a6acb9;
       }
       .offer-card h3 {
-        margin: 0 0 0.2rem;
+        margin: 0 0 0.6rem;
+        font-size: 1.65rem;
       }
-      .offer-card h4 {
-        margin: 0 0 0.8rem;
-        font-size: 0.92rem;
-        color: var(--muted);
+      .offer-card p {
+        color: inherit;
+      }
+      .offer-card ul {
+        margin: 1rem 0 0;
+        padding-left: 1rem;
+        line-height: 1.6;
       }
       .offer-price {
-        margin-top: 1rem;
-        font-size: 1.35rem;
-        font-weight: 800;
-        color: var(--brand-navy);
+        margin-top: auto;
+        padding-top: 1.2rem;
       }
-      .offer-list {
-        margin: 0.25rem 0 0;
-        padding-left: 1.1rem;
+      .offer-price strong {
+        font-size: 2.35rem;
+        line-height: 1;
       }
-      .offer-list li {
-        margin-bottom: 0.4rem;
+      .offer-card--premium .offer-price {
+        color: #e6ebf6;
       }
-      .cta-box {
-        margin-top: 2rem;
-        padding: 1.25rem;
-        border-radius: 14px;
-        border: 1px solid var(--border);
-        background: linear-gradient(135deg, rgba(30, 106, 173, 0.1), rgba(176, 125, 18, 0.08));
+      .offer-extra {
+        margin: 1.2rem 0 3rem;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+      .offer-box {
+        background: #f1f3f8;
+        border-radius: 24px;
+        padding: 1.45rem;
+      }
+      .offer-box h3 {
+        margin: 0 0 1rem;
+      }
+      .offer-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid #d5d9e4;
+      }
+      .offer-row:last-child {
+        border-bottom: 0;
+      }
+      .offer-timeline p {
+        margin: 0.4rem 0;
+      }
+      .offer-cta {
+        margin-top: 3.2rem;
+        border-radius: 34px;
+        background: linear-gradient(135deg, #09090b 0%, #1a1b24 100%);
+        color: #fff;
+        text-align: center;
+        padding: clamp(1.9rem, 6vw, 4rem);
+      }
+      .offer-cta p {
+        color: #cbd1dd;
+        max-width: 780px;
+        margin: 0.8rem auto 0;
+        line-height: 1.7;
+      }
+      .offer-cta a {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 1.35rem;
+        padding: 0.95rem 1.6rem;
+        border-radius: 999px;
+        font-weight: 700;
+        color: #09090b;
+        background: #fff;
       }
     </style>
   </head>
   <body>
-    <main class="offer-page">
-      <div class="wrap">
-        <section class="offer-hero">
-          <p class="offer-sub">Realizacja wywiadów premium</p>
-          <h1>Rozmowy eksperckie • podcasty • formaty edukacyjne • social media</h1>
-          <p class="offer-lead">
-            Profesjonalna realizacja wywiadów wideo w plenerze lub studio. Od nagrania i prowadzenia
-            rozmowy po montaż filmu głównego oraz short form content do social media.
-          </p>
-          <p>
-            Realizacja:
-            <a href="https://www.ostudios.pl" rel="noopener noreferrer" target="_blank">Outstanding Studios</a>
-          </p>
-        </section>
+    <section class="offer-hero">
+      <div class="offer-wrap offer-hero-inner">
+        <p class="offer-brand">Outstanding Studios</p>
+        <h1>Realizacja wywiadów premium</h1>
+        <p>
+          Profesjonalna realizacja rozmów eksperckich, podcastów oraz formatów edukacyjnych do internetu i
+          social media. Od przygotowania wywiadu po montaż filmu głównego oraz short form content.
+        </p>
+        <p class="offer-hero-link">
+          <a href="https://www.ostudios.pl" rel="noopener noreferrer" target="_blank">www.ostudios.pl</a>
+        </p>
+      </div>
+    </section>
 
-        <hr class="offer-divider" />
-
-        <section class="offer-section">
+    <section class="offer-main">
+      <div class="offer-wrap">
+        <div class="offer-intro">
           <h2>Co zawiera realizacja?</h2>
-          <h3>Kompleksowa produkcja</h3>
-          <ul class="offer-list">
-            <li>przygotowanie koncepcji nagrania</li>
-            <li>realizacja wywiadu</li>
-            <li>rejestracja obrazu i dźwięku</li>
-            <li>montaż filmu głównego</li>
-            <li>korekcja kolorystyczna</li>
-            <li>mastering audio</li>
-            <li>przygotowanie materiałów pod social media</li>
-            <li>eksport materiałów w odpowiednich formatach</li>
-          </ul>
+          <div class="offer-columns">
+            <div class="offer-lines">
+              <p>• przygotowanie koncepcji nagrania</p>
+              <p>• realizacja wywiadu</p>
+              <p>• rejestracja obrazu i dźwięku</p>
+              <p>• montaż filmu głównego</p>
+              <p>• korekcja kolorystyczna</p>
+              <p>• mastering audio</p>
+            </div>
+            <div class="offer-lines">
+              <p>• przygotowanie materiałów pod social media</p>
+              <p>• eksport materiałów w odpowiednich formatach</p>
+              <p>• prowadzenie rozmowy i moderacja</p>
+              <p>• przygotowanie pytań</p>
+              <p>• wsparcie komunikacyjne i merytoryczne</p>
+            </div>
+          </div>
+        </div>
 
-          <h3>Prowadzenie rozmowy</h3>
+        <div class="offer-host">
+          <p>Prowadzenie rozmowy</p>
+          <h3>Pani Rzecznik</h3>
           <p>
-            Wywiady prowadzone są przez:
-            <a href="https://panirzecznik.pl/" rel="noopener noreferrer" target="_blank">Pani Rzecznik</a>
+            Wywiady prowadzone są przez profesjonalną moderatorkę i ekspertkę komunikacji. W ramach współpracy
+            zapewniamy przygotowanie pytań, moderację rozmowy oraz wsparcie w wydobyciu naturalnych i
+            wartościowych wypowiedzi.
           </p>
-          <p>W ramach współpracy:</p>
-          <ul class="offer-list">
-            <li>przygotowanie pytań</li>
-            <li>moderacja rozmowy</li>
-            <li>prowadzenie wywiadu</li>
-            <li>wsparcie merytoryczne i komunikacyjne</li>
-          </ul>
-        </section>
+          <a href="https://panirzecznik.pl/" rel="noopener noreferrer" target="_blank">panirzecznik.pl</a>
+        </div>
 
-        <hr class="offer-divider" />
-
-        <section class="offer-section">
-          <h2>Pakiety</h2>
+        <div class="offer-packages">
+          <h2>Pakiety realizacji</h2>
           <div class="offer-grid">
             <article class="offer-card">
-              <h3>BASIC</h3>
-              <h4>2 kamery / bez realizatora dźwięku</h4>
-              <p>Dla prostszych realizacji social mediowych i materiałów eksperckich.</p>
-              <p><strong>W pakiecie:</strong></p>
-              <ul class="offer-list">
+              <p class="offer-tag">Basic</p>
+              <h3>2 kamery</h3>
+              <p>Prosta i skuteczna forma realizacji wywiadu do internetu oraz social media.</p>
+              <ul>
                 <li>realizacja zdjęć</li>
                 <li>2 kamery</li>
                 <li>mikroporty bezprzewodowe</li>
@@ -145,41 +311,35 @@
                 <li>prowadzenie rozmowy</li>
                 <li>5 reelsów pionowych</li>
               </ul>
-              <p class="offer-price">6900 zł netto</p>
+              <p class="offer-price"><strong>6900</strong><br />zł netto</p>
             </article>
 
-            <article class="offer-card">
-              <h3>PRO</h3>
-              <h4>2 kamery + realizator dźwięku</h4>
-              <p>
-                Najczęściej wybierana opcja. Idealna do profesjonalnych materiałów eksperckich, medycznych i
-                biznesowych.
-              </p>
-              <p><strong>W pakiecie:</strong></p>
-              <ul class="offer-list">
-                <li>realizacja zdjęć</li>
-                <li>2 kamery</li>
-                <li>profesjonalna rejestracja dźwięku</li>
-                <li>operator + dźwiękowiec</li>
+            <article class="offer-card offer-card--pro">
+              <p class="offer-tag">Pro</p>
+              <h3>3 kamery</h3>
+              <p>Dynamiczna realizacja z większą ilością ujęć i bardziej telewizyjnym charakterem montażu.</p>
+              <ul>
+                <li>realizacja 3-kamerowa</li>
+                <li>mikroporty bezprzewodowe</li>
+                <li>operator</li>
+                <li>dodatkowa kamera</li>
                 <li>montaż filmu głównego</li>
                 <li>color grading</li>
-                <li>mastering audio</li>
                 <li>prowadzenie rozmowy</li>
                 <li>przygotowanie pytań</li>
                 <li>5 reelsów pionowych</li>
               </ul>
-              <p class="offer-price">8900 zł netto</p>
+              <p class="offer-price"><strong>8900</strong><br />zł netto</p>
             </article>
 
-            <article class="offer-card">
-              <h3>PREMIUM</h3>
-              <h4>3 kamery + realizator dźwięku</h4>
+            <article class="offer-card offer-card--premium">
+              <p class="offer-tag">Premium</p>
+              <h3>3 kamery + dźwiękowiec</h3>
               <p>
-                Najbardziej rozbudowana forma realizacji. Dynamiczny montaż, większa ilość ujęć i bardziej
-                cinematic charakter produkcji.
+                Najbardziej rozbudowana forma realizacji dedykowana profesjonalnym produkcjom eksperckim i
+                biznesowym.
               </p>
-              <p><strong>W pakiecie:</strong></p>
-              <ul class="offer-list">
+              <ul>
                 <li>realizacja 3-kamerowa</li>
                 <li>profesjonalna rejestracja dźwięku</li>
                 <li>operator + dodatkowa kamera + dźwiękowiec</li>
@@ -192,52 +352,48 @@
                 <li>przygotowanie pytań</li>
                 <li>5 reelsów premium</li>
               </ul>
-              <p class="offer-price">12 900 zł netto</p>
+              <p class="offer-price"><strong>12 900</strong><br />zł netto</p>
             </article>
           </div>
-        </section>
+        </div>
 
-        <hr class="offer-divider" />
+        <div class="offer-extra">
+          <div class="offer-box">
+            <h3>Dodatkowe reelsy</h3>
+            <div class="offer-row"><span>1 reels</span><strong>350 zł netto</strong></div>
+            <div class="offer-row"><span>Pakiet 5 reelsów</span><strong>1500 zł netto</strong></div>
+          </div>
+          <div class="offer-box">
+            <h3>Opcjonalnie</h3>
+            <div class="offer-lines">
+              <p>• ujęcia z drona</p>
+              <p>• dodatkowy dzień zdjęciowy</p>
+              <p>• studio zamiast pleneru</p>
+              <p>• profesjonalny make-up na planie</p>
+              <p>• pełne napisy do filmu</p>
+              <p>• tłumaczenia i wersje językowe</p>
+              <p>• backstage foto/video</p>
+              <p>• dodatkowe formaty reklamowe</p>
+            </div>
+          </div>
+        </div>
 
-        <section class="offer-section">
-          <h2>Dodatkowe reelsy (poza pakietem)</h2>
-          <ul class="offer-list">
-            <li>1 reels: 350 zł netto</li>
-            <li>pakiet 5 reelsów: 1500 zł netto</li>
-          </ul>
-        </section>
-
-        <section class="offer-section">
-          <h2>Opcjonalnie</h2>
-          <ul class="offer-list">
-            <li>ujęcia z drona</li>
-            <li>dodatkowy dzień zdjęciowy</li>
-            <li>studio zamiast pleneru</li>
-            <li>pełne napisy do filmu</li>
-            <li>tłumaczenia i wersje językowe</li>
-            <li>backstage foto/video</li>
-            <li>dodatkowe formaty reklamowe</li>
-          </ul>
-        </section>
-
-        <section class="offer-section">
+        <div class="offer-timeline">
           <h2>Terminy</h2>
           <p><strong>Realizacja zdjęć:</strong> 1 dzień zdjęciowy</p>
           <p><strong>Pierwszy montaż:</strong> do 7 dni roboczych</p>
           <p><strong>Reelsy:</strong> do 3 dni po akceptacji filmu głównego</p>
-        </section>
+        </div>
 
-        <div class="cta-box">
+        <div class="offer-cta">
+          <p class="offer-brand">Outstanding Studios</p>
           <h2>Chcesz przygotować profesjonalny format wywiadowy?</h2>
           <p>
-            Skontaktuj się z nami:
-            <a href="https://www.ostudios.pl" rel="noopener noreferrer" target="_blank">www.ostudios.pl</a>
+            Produkujemy nowoczesne materiały wideo dla marek, ekspertów, branży medycznej oraz biznesu.
           </p>
-          <p>
-            Produkujemy nowoczesne materiały wideo dla marek, ekspertów, branży medycznej i biznesu.
-          </p>
+          <a href="https://www.ostudios.pl" rel="noopener noreferrer" target="_blank">Skontaktuj się z nami</a>
         </div>
       </div>
-    </main>
+    </section>
   </body>
 </html>
