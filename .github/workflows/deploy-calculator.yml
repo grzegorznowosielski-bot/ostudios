@@ -1,0 +1,30 @@
+name: Deploy calculator to dhosting
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'kalkulator/**'
+      - '.github/workflows/deploy-calculator.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: ostudios-calculator-deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Deploy calculator only
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        with:
+          server: ostudios.ftp.dhosting.pl
+          username: ostudios
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: 21
+          local-dir: ./kalkulator/
+          server-dir: /ostudio.pl/public_html/kalkulator/
